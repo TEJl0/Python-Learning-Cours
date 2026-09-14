@@ -1,0 +1,114 @@
+"""collection = [] #list
+is_start = True #flag
+
+while (is_start):
+    print("1 - показать заметки | 2 - добавить заметку")
+    choice_user = input('Введите ваш выбор (1 или 2)')
+    match int(choice_user):
+        case 1:
+            print(collection)
+        case 2:
+            collection.append('task')
+            print(collection)
+        case _:
+            print('Такого пункта нет!')"""
+from random import choice
+from shutil import chown
+
+"""import os
+import sys
+import platform
+import datetime
+
+os_name = platform.system()
+os_version = platform.version()
+os_arch = platform.architecture()[0]
+os_processor = platform.processor()
+os_machine = platform.machine()
+os_python_version = platform.python_version()
+os_android = platform.android_ver()
+
+now = datetime.datetime.now()
+sys_in = sys.path
+sys_platform = sys.platform
+sys_version = sys.version
+
+print(f"{os_name} \n" 
+      f"{os_version} \n" 
+      f"{os_arch} \n" 
+      f"{now.year} \n" 
+      f"{now.month} \n" 
+      f"{now.day} \n" 
+      f"{now.hour} \n"
+      f"{now.minute} \n"
+      f"{now.second} \n"
+      f"{now.microsecond} \n" 
+      f"{os_processor} \n" 
+      f"{os_machine} \n" 
+      f"{os_python_version} \n" 
+      f"{os_android} \n")"""
+
+"""Код выводит данные компьютера, такие как его имя, версия оп, время и т.д."""
+is_running = True
+collections = ["task 1"," task 2"] #list
+
+def show_menu ():
+    print("<UNK> <UNK> <UNK>"
+        "1 посмотреть задачи \n"
+        "2 добавить\n"
+        "3 редактировать \n"
+        "4 удалить задачу \n"
+        "5 выход "
+    )
+def show_collectoin(collection):
+ print("=" * 30)
+for i, j in enumerate(collections):
+    print(i + 1, j)
+    print("=" * 30)
+print()
+while is_running:
+    print(
+        "1 посмотреть задачи \n"
+        "2 добавить\n"
+        "3 редактировать \n"
+        "4 удалить задачу \n"
+        "5 выход "
+    )
+    choice_user = input(' ')
+    match str(choice_user):
+        case '1':
+            show_collectoin(collections)
+            waite = input('')
+        case '2':
+            task_name = input("Введите название задачи")
+            if task_name.startswith('<UNK>'):
+                if len(task_name) <2:
+                    print("Назвнаие не может быть пустым")
+                    continue
+            else:
+               collections.append(f"задача{len(collections)}")
+            else:
+            collections.append(task_name)
+            
+        case '3':
+            show_collectoin(collections)
+            select_edit = input('Введите номер задачи')
+            if int(select_edit.isdigit()):
+                if int(select_edit) > 0 and int(select_edit) <= len(collections):
+                 edit_name = input("Введите новое имя задачи")
+            if select_edit <= len(collections):
+               collections[ select_edit - 1] = edit_name
+               print(f"задача '{select_edit}' '{edit_name}' успешно отредактировано!")
+            else:
+                print("задачи с таким номером нет в списке")
+        case '4':
+            show_collectoin(collections)
+            select_task = int(input("Введите номер задачи"))
+            delete_task = input("Введите новое имя задачи")
+            collections[ select_task - 1] = delete_task
+
+        case '5':
+            is_running = False
+            print("До свидания")
+        case _:
+            (print("такого пункта нет"))

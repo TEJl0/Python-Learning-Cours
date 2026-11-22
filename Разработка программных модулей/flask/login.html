@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <h1>Вход в систему</h1>
+    <form method="POST" action="/login">
+        Имя пользователя: <input type="text" name="username" placeholder="Имя пользователя" required autofocus><br>
+        Пароль: <input type="password" name="password" placeholder="Пароль" required><br>
+        <button type="submit">Войти</button>
+    </form>
+</body>
+</html>
